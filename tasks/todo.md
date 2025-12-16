@@ -8,10 +8,10 @@ Build a pygame-based LED matrix simulator that integrates with the SDK v2 securi
 ## Todo List
 
 ### Phase 1: Core Simulator
-- [ ] 1.1 Create `led_simulator.py` - pygame window that renders an LED matrix grid
-- [ ] 1.2 Add pixel-level control (set individual LED colors)
-- [ ] 1.3 Add text rendering (convert text to LED pixel patterns)
-- [ ] 1.4 Add color support (red, green, amber, white for emergencies)
+- [x] 1.1 Create `led_simulator.py` - pygame window that renders an LED matrix grid
+- [x] 1.2 Add pixel-level control (set individual LED colors)
+- [x] 1.3 Add text rendering (convert text to LED pixel patterns)
+- [x] 1.4 Add color support (red, green, amber, white for emergencies)
 
 ### Phase 2: SDK Integration
 - [ ] 2.1 Create `SimulatorDisplayBackend` class implementing `SecureDisplayBackend` interface
