@@ -1,0 +1,91 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cityarray-sdk"
+version = "0.2.0"
+description = "AI-powered emergency communication platform SDK with Trust No Edge security"
+readme = "README.md"
+license = {text = "Proprietary"}
+requires-python = ">=3.10"
+authors = [
+    {name = "CITYARRAY Team", email = "dev@cityarray.ai"},
+]
+keywords = [
+    "emergency-communication",
+    "led-signage",
+    "public-safety",
+    "ai-detection",
+    "crisis-management",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+]
+dependencies = [
+    "cryptography>=41.0.0",
+]
+
+[project.optional-dependencies]
+detection = [
+    "ultralytics>=8.0.0",
+    "opencv-python>=4.8.0",
+    "numpy>=1.24.0",
+]
+tts = [
+    "pyttsx3>=2.90",
+    "pocketsphinx>=5.0.0",
+]
+display = [
+    "pygame>=2.5.0",
+    "Pillow>=10.0.0",
+]
+rpi = [
+    "RPi.GPIO>=0.7.1",
+    "spidev>=3.6",
+    "rpi-rgb-led-matrix>=0.0.1",
+]
+all = [
+    "cityarray-sdk[detection,tts,display]",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/onthedrops/cityarray-sdk"
+Documentation = "https://github.com/onthedrops/cityarray-sdk#readme"
+Repository = "https://github.com/onthedrops/cityarray-sdk"
+Issues = "https://github.com/onthedrops/cityarray-sdk/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cityarray"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_ignores = true
